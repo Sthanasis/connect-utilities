@@ -12,11 +12,19 @@ public class AppErrorUtility : ControllerBase
         });
     }
 
-    public ActionResult SendClientError(string message)
+    public ActionResult SendNotFoundError(string message)
     {
         return NotFound(new AppResult()
         {
             Error = new ErrorViewModel { Message = message, Status = 404 },
+        });
+    }
+
+    public ActionResult SendBadRequestError(string message)
+    {
+        return BadRequest(new AppResult()
+        {
+            Error = new ErrorViewModel { Message = message, Status = 401 }
         });
     }
 }
